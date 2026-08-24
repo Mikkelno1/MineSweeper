@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using MineSweeper.Models;
 using MineSweeper.ViewModels;
 
 namespace MineSweeper.Views;
@@ -32,10 +33,26 @@ public partial class GameView : UserControl
             }
         }
     }
-    
+
     private void Button_OnClick(object? sender, RoutedEventArgs e)
     {
         Button button = sender as Button;
         Console.WriteLine("Clicked");
+
+        int row = Grid.GetRow(button);
+        int column = Grid.GetColumn(button);
+
+        
+
+    if (DataContext is GameViewModel viewModel)
+        {
+            viewModel.FloodReveal(row, column);
+
+            Cell cell = viewModel.Gameboard[row, column];
+            if (cell.IsRevealed) 
+            {
+                button.IsVisible = false;
+            }
+        }
     }
 }

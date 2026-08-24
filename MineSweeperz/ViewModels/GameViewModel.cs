@@ -12,6 +12,7 @@ public class GameViewModel : ViewModelBase
     private const int Rows = 15;
     private const int Columns = 15;
     private Cell[,] _gameBoard = new Cell[Rows, Columns];
+    public Cell[,] Gameboard => _gameBoard;
     private Grid _gameGrid;
 
 
@@ -94,7 +95,7 @@ public class GameViewModel : ViewModelBase
     }
     
     
-    private void FloodReveals(int startRow, int startColumn)
+    public void FloodReveal(int startRow, int startColumn)
     {
         Queue<(int row, int column)> queue = new();
 
@@ -112,14 +113,16 @@ public class GameViewModel : ViewModelBase
 
             Cell cell = _gameBoard[row, column];
             
-            cell.IsRevealed = true;
+            
 
             //Continues if already revealed or if the cell is a bomb
             if (cell.IsRevealed || cell.ContainsBomb)
             {
                 continue;
             }
-
+            
+            cell.IsRevealed = true;
+            
             //Stops spreading if adjacent to a bomb
             if (cell.AdjacentBomb > 0)
             {
@@ -137,17 +140,12 @@ public class GameViewModel : ViewModelBase
                     }
 
                     queue.Enqueue((
-                        row ,
-                        column
+                        row + rowOffset, 
+                        column + columnOffset
                     ));
                 }
             }
         }
     }
     
-    private void Button_OnClick(object? sender, RoutedEventArgs e)
-    {
-        Button button = sender as Button;
-        Console.WriteLine("Clicked");
-    }
 }
