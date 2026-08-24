@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using MineSweeper.Models;
@@ -9,8 +10,8 @@ namespace MineSweeper.ViewModels;
 
 public class GameViewModel : ViewModelBase
 {
-    private const int Rows = 15;
-    private const int Columns = 15;
+    private const int Rows = 20;
+    private const int Columns = 20;
     private Cell[,] _gameBoard = new Cell[Rows, Columns];
     public Cell[,] Gameboard => _gameBoard;
     private Grid _gameGrid;
@@ -50,12 +51,15 @@ public class GameViewModel : ViewModelBase
             {
                 continue;
             }
+            //bool bombPlaced = _gameBoard[row, column].ContainsBomb ? continue: _gameBoard[row, column].ContainsBomb;
 
+            
             _gameBoard[row, column].ContainsBomb = true;
             placed++;
 
             Console.WriteLine(_gameBoard[row, column].ContainsBomb = true);
         }
+        Console.WriteLine(placed);
     }
     
     private void CalculateAdjacentBombs()

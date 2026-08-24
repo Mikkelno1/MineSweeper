@@ -6,13 +6,16 @@
              x:Class="MineSweeper.Views.GameView"
              xmlns:vm="using:MineSweeper.ViewModels"
              x:DataType="vm:GameViewModel">
-    
+
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:GameViewModel />
     </Design.DataContext>
-    
-    <Grid RowDefinitions="20" ColumnDefinitions="20" Name="GameGrid">
-    </Grid>
+
+
+    <Canvas Name="GameOverCanvas">
+        <Grid Name="GameGrid">
+        </Grid> <!--RowDefinitions="20" ColumnDefinitions="20"-->
+    </Canvas>
 </UserControl>
