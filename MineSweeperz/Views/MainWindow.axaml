@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MineSweeper.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:MineSweeperz.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600"
+        x:Class="MineSweeper.Views.MainWindow"
+        x:DataType="viewModels:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="MineSweeper"
+        Height="600"
+        Width="600"
+        Background="Gray">
+    
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <viewModels:MainViewModel />
+    </Design.DataContext>
+
+    <Grid HorizontalAlignment="Center"
+          VerticalAlignment="Center">
+        <StackPanel
+            IsVisible="{Binding menuVisible}">
+            <TextBlock
+                Height="100"
+                Width="200"
+                Text="Whalecum to Minesweeper"
+                ></TextBlock>
+            <Button
+                Height="50"
+                Width="150"
+                Name="StartGame"
+                Content="Start game"
+                Command="{Binding NavigateToGame}"
+                HorizontalContentAlignment="Center"/>
+            <CheckBox
+                HorizontalAlignment="Left"
+                Name="HardMode"
+                Content="Hard mode">
+            </CheckBox>
+        </StackPanel>
+        
+        <ContentControl Content="{Binding CurrentViewModel}" />
+        
+    </Grid>
+</Window>
