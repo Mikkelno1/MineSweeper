@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using MineSweeper.Models;
 using MineSweeperz.ViewModels;
 
@@ -55,47 +56,6 @@ public class GameViewModel : ViewModelBase
             Console.WriteLine(_gameBoard[row, column].ContainsBomb = true);
         }
     }
-
-    private void FloodReveal(int row, int column)
-    {
-        //Checks for boundaries
-        if (row < 0 || row >= Rows || column < 0 || column >= Columns)
-        {
-            return;
-        }
-
-        Cell cell = _gameBoard[row, column];
-        
-        cell.IsRevealed = true;
-
-        //Checks if cell already is revealed or is a bomb, breaks out if true
-        if (cell.IsRevealed || cell.ContainsBomb)
-        {
-            return;
-        }
-        
-        //Breaks out of the recursion if number of adjacent bombs is larger than 0
-        if (cell.AdjacentBomb > 0)
-        {
-            return;
-        }
-        
-        //Checks immediate rows and columns in a -1, 0, +1 pattern, continues when reaching the middle (0,0) otherwise
-        //
-        for (int rowOffset = -1; rowOffset <= 1; rowOffset++)
-        {
-            for (int columnOffset = -1; columnOffset <= 1; columnOffset++)
-            {
-                if (rowOffset == 0 && columnOffset == 0)
-                    continue;
-
-                FloodReveal(
-                    row,
-                    column 
-                );
-            }
-        }
-    }
     
     private void CalculateAdjacentBombs()
     {
@@ -144,7 +104,7 @@ public class GameViewModel : ViewModelBase
         {
             var (row, column) = queue.Dequeue();
 
-            // Check boundaries
+            //Checking if boundaries have been reached
             if (row < 0 || row >= Rows || column < 0 || column >= Columns)
             {
                 continue;
@@ -154,19 +114,19 @@ public class GameViewModel : ViewModelBase
             
             cell.IsRevealed = true;
 
-            // Already revealed or bomb
+            //Continues if already revealed or if the cell is a bomb
             if (cell.IsRevealed || cell.ContainsBomb)
             {
                 continue;
             }
 
-            // Stop spreading if next to a bomb
+            //Stops spreading if adjacent to a bomb
             if (cell.AdjacentBomb > 0)
             {
                 continue;
             }
 
-            // Add all 8 neighbors to the queue
+            //Adding neighborus to queue
             for (int rowOffset = -1; rowOffset <= 1; rowOffset++)
             {
                 for (int columnOffset = -1; columnOffset <= 1; columnOffset++)
@@ -183,5 +143,11 @@ public class GameViewModel : ViewModelBase
                 }
             }
         }
+    }
+    
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Button button = sender as Button;
+        Console.WriteLine("Clicked");
     }
 }
