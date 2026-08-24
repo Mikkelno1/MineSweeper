@@ -13,6 +13,6 @@
         <vm:GameViewModel />
     </Design.DataContext>
     
-    <Grid RowDefinitions="20" ColumnDefinitions="20" Name="GameGrid">
+    <Grid Name="GameGrid">
     </Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using MineSweeper.Models;
@@ -9,11 +10,12 @@ namespace MineSweeper.ViewModels;
 
 public class GameViewModel : ViewModelBase
 {
-    private const int Rows = 15;
-    private const int Columns = 15;
+    private const int Rows = 20;
+    private const int Columns = 20;
     private Cell[,] _gameBoard = new Cell[Rows, Columns];
     public Cell[,] Gameboard => _gameBoard;
     private Grid _gameGrid;
+    
 
 
     public GameViewModel()
