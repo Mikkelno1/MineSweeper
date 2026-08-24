@@ -17,7 +17,7 @@ public partial class GameView : UserControl
     public GameView()
     {
         InitializeComponent();
-
+        
         for (int row = 0; row < Rows; row++)
         {
             GameGrid.RowDefinitions.Add(new RowDefinition());
@@ -46,7 +46,10 @@ public partial class GameView : UserControl
         int row = Grid.GetRow(button);
         int column = Grid.GetColumn(button);
 
-        if (bombCliked(row, column)) {EndGame();}
+        if (bombCliked(row, column))
+        {
+            EndGame();
+        }
 
         if (DataContext is GameViewModel viewModel)
         {
@@ -67,21 +70,20 @@ public partial class GameView : UserControl
             Cell cell = viewModel.Gameboard[row, column];
             return cell.ContainsBomb;
         }
+
         return false;
     }
 
-    
-    
+
     private void EndGame()
     {
         Rectangle endGame = new Rectangle
         {
-            Width = 100,
-            Height = 100,
+            Width = GameGrid.Bounds.Width,
+            Height = GameGrid.Bounds.Height,
+            Fill = Brushes.DarkGray,
+            Opacity = 0.7,
         };
-        
-        Canvas.SetLeft(endGame, 0);
-        Canvas.SetTop(endGame, 0);
         
         GameOverCanvas.Children.Add(endGame);
     }
