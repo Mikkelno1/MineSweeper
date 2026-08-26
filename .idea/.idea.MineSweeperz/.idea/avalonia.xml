@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="MineSweeperz/App.axaml" value="MineSweeperz/MineSweeperz.csproj" />
         <entry key="MineSweeperz/Views/GameView.axaml" value="MineSweeperz/MineSweeperz.csproj" />
         <entry key="MineSweeperz/Views/MainWindow.axaml" value="MineSweeperz/MineSweeperz.csproj" />
       </map>
