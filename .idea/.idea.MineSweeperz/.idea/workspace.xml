@@ -14,8 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="768b1936-a2b3-4ed5-9dff-e1ab6f27b9af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MineSweeperz/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MineSweeperz/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MineSweeperz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MineSweeperz/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MineSweeperz/ViewModels/GameViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeperz/ViewModels/GameViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +71,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Sebastianm&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;new-branch&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -125,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787599614550</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="6514">
+      <option name="closed" value="true" />
+      <created>1787752712732</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1787752712732</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,7 +147,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="MOSHF" />
     <MESSAGE value="ghdjf" />
-    <option name="LAST_COMMIT_MESSAGE" value="ghdjf" />
+    <MESSAGE value="6514" />
+    <option name="LAST_COMMIT_MESSAGE" value="6514" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

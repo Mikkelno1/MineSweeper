@@ -157,13 +157,14 @@ public partial class GameView : UserControl
         };
         CreateGameOverMenu();
         GameOverCanvas.Children.Add(endGame);
+        lblBomb.IsVisible = false;
     }
 
     private void CreateGameOverMenu()
     {
         Label gameOverLabel = new Label
         {
-            Content = "Game Over, you Lost!!!",
+            Content = "Game Over, you lost!!!",
             FontSize = 14,
         };
         MainGrid.Children.Add(gameOverLabel);

@@ -14,10 +14,19 @@
     </Design.DataContext>
 
     <Grid Name="MainGrid">
-        <Grid Name="GameGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+            
+        <Label Grid.Row ="0" 
+               Content="{Binding bombCount, StringFormat='Bombs left: {0}'}" 
+               Name="lblBomb"></Label>
+        
+        <Grid Grid.Row="1" Name="GameGrid">
         </Grid>
         
-        <Canvas Name="GameOverCanvas">
+        <Canvas Grid.Row="1" Name="GameOverCanvas">
         </Canvas>
     </Grid>
 

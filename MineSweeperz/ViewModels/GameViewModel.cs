@@ -16,6 +16,7 @@ public class GameViewModel : ViewModelBase
     private int _adjecentBombs;
     public Cell[,] Gameboard => _gameBoard;
     private Grid _gameGrid;
+    public int bombCount { get; private set; }
     
 
 
@@ -25,6 +26,7 @@ public class GameViewModel : ViewModelBase
         GenerateBomb();
         CalculateAdjacentBombs();
     }
+    
 
     private void GenerateGrid()
     {
@@ -39,7 +41,7 @@ public class GameViewModel : ViewModelBase
 
     private void GenerateBomb()
     {
-        int bombCount = (Rows * Columns) / 10;
+        bombCount = (Rows * Columns) / 10;
 
         Random random = new();
         var placed = 0;
@@ -96,8 +98,7 @@ public class GameViewModel : ViewModelBase
             }
         }
     }
-    
-    
+
     public void FloodReveal(int startRow, int startColumn)
     {
         Queue<(int row, int column)> queue = new();
@@ -153,5 +154,5 @@ public class GameViewModel : ViewModelBase
         }
     }
     
-    public int AdjacentBombs { get; private set; }
+    
 }
