@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
             
         <Label Grid.Row ="0" 
-               Content="{Binding bombCount, StringFormat='Bombs left: {0}'}" 
+               Content="{Binding totalBombCount, StringFormat='Bombs left: {0}'}" 
                Name="lblBomb"></Label>
         
         <Grid Grid.Row="1" Name="GameGrid">

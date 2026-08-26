@@ -22,6 +22,10 @@ public partial class GameView : UserControl
         CreateButtons();
     }
 
+    /**
+     * Creates buttons on each position in the gamegrid
+     * Buttons made will subscribe to certain events
+     */
     private void CreateButtons()
     {
         for (int row = 0; row < Rows; row++)
@@ -60,6 +64,9 @@ public partial class GameView : UserControl
             button.Content = "🚩";
     }
 
+    /**
+     * Notifies buttons when certain events are triggered 
+     */
     private void Button_OnClick(object? sender, RoutedEventArgs e)
     {
         Button button = sender as Button;
@@ -120,6 +127,9 @@ public partial class GameView : UserControl
     }
 
 
+    /**
+     * Removes buttons from the View once clicked
+     */
     private void RemoveButtons(GameViewModel gameViewModel)
     {
         for (int row = 0; row < Rows; row++)

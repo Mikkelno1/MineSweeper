@@ -5,6 +5,9 @@ using System.Runtime.CompilerServices;
 
 namespace MineSweeper.Models;
 
+/**
+ * Cell class which populates the gamegrid. Each cell will contain a button and a boolean value
+ */
 public class Cell : INotifyPropertyChanged
 {
     

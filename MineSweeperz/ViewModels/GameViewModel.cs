@@ -16,7 +16,7 @@ public class GameViewModel : ViewModelBase
     private int _adjecentBombs;
     public Cell[,] Gameboard => _gameBoard;
     private Grid _gameGrid;
-    public int bombCount { get; private set; }
+    public int totalBombCount { get; private set; }
     
 
 
@@ -28,6 +28,9 @@ public class GameViewModel : ViewModelBase
     }
     
 
+    /**
+     * Creates gamegrid which is later populated by buttons
+     */
     private void GenerateGrid()
     {
         for (int row = 0; row < Rows; row++)
@@ -39,14 +42,17 @@ public class GameViewModel : ViewModelBase
         }
     }
 
+    /**
+     * Generate bombs based on a percentage of rows/columns and placing them randomly on the grid
+     */
     private void GenerateBomb()
     {
-        bombCount = (Rows * Columns) / 10;
+        totalBombCount = (Rows * Columns) / 10;
 
         Random random = new();
         var placed = 0;
 
-        while (placed < bombCount)
+        while (placed < totalBombCount)
         {
             var row = random.Next(Rows);
             var column = random.Next(Columns);
@@ -63,6 +69,11 @@ public class GameViewModel : ViewModelBase
         }
     }
     
+    /**
+     * Checks the adjacent cells of the clicked cell for bombs
+     * Ignores rows and columns out of bounds and increment number of adjacent bombs
+     * Adjacent bomb count is later used for the floodreveal method
+     */
     private void CalculateAdjacentBombs()
     {
         for (int row = 0; row < Rows; row++)
@@ -99,6 +110,7 @@ public class GameViewModel : ViewModelBase
         }
     }
 
+    //Graph traversal via breadth first search to find all available blank spots in the current "chunk"
     public void FloodReveal(int startRow, int startColumn)
     {
         Queue<(int row, int column)> queue = new();

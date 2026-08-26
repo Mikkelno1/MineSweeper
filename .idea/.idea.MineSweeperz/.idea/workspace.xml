@@ -15,6 +15,7 @@
   <component name="ChangeListManager">
     <list default="true" id="768b1936-a2b3-4ed5-9dff-e1ab6f27b9af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MineSweeperz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MineSweeperz/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MineSweeperz/Models/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeperz/Models/Cell.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MineSweeperz/ViewModels/GameViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeperz/ViewModels/GameViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeperz/Views/GameView.axaml.cs" afterDir="false" />
@@ -48,6 +49,9 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/6D339A2854570CBFC4374DC2/Avalonia.Generators/Avalonia.Generators.NameGenerator.AvaloniaNameIncrementalGenerator/MineSweeper.Views.GameView.g.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9cb048310b2c478fa134e8cd10cd9f78147600/4d/4707d2df/ColumnDefinition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9cb048310b2c478fa134e8cd10cd9f78147600/5f/fe97bc38/Grid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/526206033577f1fd74d826fc3993fbe4d6c67c96e37d1dc61f7cb673c645/Binding.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -135,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787752712732</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="wda">
+      <option name="closed" value="true" />
+      <created>1787755031749</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1787755031749</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +160,8 @@
     <MESSAGE value="MOSHF" />
     <MESSAGE value="ghdjf" />
     <MESSAGE value="6514" />
-    <option name="LAST_COMMIT_MESSAGE" value="6514" />
+    <MESSAGE value="wda" />
+    <option name="LAST_COMMIT_MESSAGE" value="wda" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

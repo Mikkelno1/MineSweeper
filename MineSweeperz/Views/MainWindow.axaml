@@ -35,11 +35,6 @@
                 Content="Start game"
                 Command="{Binding NavigateToGame}"
                 HorizontalContentAlignment="Center"/>
-            <CheckBox
-                HorizontalAlignment="Left"
-                Name="HardMode"
-                Content="Hard mode">
-            </CheckBox>
         </StackPanel>
         
         <ContentControl Content="{Binding CurrentViewModel}" />
