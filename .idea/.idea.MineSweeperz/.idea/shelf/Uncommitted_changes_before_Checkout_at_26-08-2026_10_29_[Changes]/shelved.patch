@@ -1,0 +1,112 @@
+Index: MineSweeperz/Views/GameView.axaml.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\r\nusing Avalonia;\r\nusing Avalonia.Controls;\r\nusing Avalonia.Interactivity;\r\nusing Avalonia.Markup.Xaml;\r\nusing MineSweeper.Models;\r\nusing MineSweeper.ViewModels;\r\n\r\nnamespace MineSweeper.Views;\r\n\r\npublic partial class GameView : UserControl\r\n{\r\n    private const int Rows = 20;\r\n    private const int Columns = 20;\r\n    \r\n    public GameView()\r\n    {\r\n        InitializeComponent();\r\n\r\n        for (int row = 0; row < Rows; row++)\r\n        {\r\n            GameGrid.RowDefinitions.Add(new RowDefinition());\r\n            GameGrid.ColumnDefinitions.Add(new ColumnDefinition());\r\n            \r\n            for (int column = 0; column < Columns; column++)\r\n            {\r\n                Button button = new Button();\r\n                button.Click += Button_OnClick;\r\n                Grid.SetRow(button, row);\r\n                Grid.SetColumn(button, column);\r\n                \r\n                GameGrid.Children.Add(button);\r\n            }\r\n        }\r\n    }\r\n\r\n    private void Button_OnClick(object? sender, RoutedEventArgs e)\r\n    {\r\n        Button button = sender as Button;\r\n        Console.WriteLine(\"Clicked\");\r\n\r\n        int row = Grid.GetRow(button);\r\n        int column = Grid.GetColumn(button);\r\n\r\n        \r\n\r\n    if (DataContext is GameViewModel viewModel)\r\n        {\r\n            viewModel.FloodReveal(row, column);\r\n\r\n            Cell cell = viewModel.Gameboard[row, column];\r\n            if (cell.IsRevealed) \r\n            {\r\n                button.IsVisible = false;\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MineSweeperz/Views/GameView.axaml.cs b/MineSweeperz/Views/GameView.axaml.cs
+--- a/MineSweeperz/Views/GameView.axaml.cs	(revision c33d8ae4eecd8553c9771e61694f6c6f434e1c17)
++++ b/MineSweeperz/Views/GameView.axaml.cs	(date 1787731265347)
+@@ -1,10 +1,11 @@
+ using System;
+-using Avalonia;
+ using Avalonia.Controls;
+ using Avalonia.Interactivity;
+-using Avalonia.Markup.Xaml;
++using Avalonia.Media;
+ using MineSweeper.Models;
+ using MineSweeper.ViewModels;
++using Avalonia.Controls.Shapes;
++
+ 
+ namespace MineSweeper.Views;
+ 
+@@ -12,47 +13,78 @@
+ {
+     private const int Rows = 20;
+     private const int Columns = 20;
+-    
++
+     public GameView()
+     {
+         InitializeComponent();
+-
++        
+         for (int row = 0; row < Rows; row++)
+         {
+             GameGrid.RowDefinitions.Add(new RowDefinition());
+             GameGrid.ColumnDefinitions.Add(new ColumnDefinition());
+-            
++
+             for (int column = 0; column < Columns; column++)
+             {
+                 Button button = new Button();
+                 button.Click += Button_OnClick;
+                 Grid.SetRow(button, row);
+                 Grid.SetColumn(button, column);
+-                
++
+                 GameGrid.Children.Add(button);
+             }
+         }
++        
++        Console.WriteLine($"Rows: {GameGrid.RowDefinitions.Count}");
++        Console.WriteLine($"Columns: {GameGrid.ColumnDefinitions.Count}");
++        Console.WriteLine($"Buttons: {GameGrid.Children.Count}");
+     }
+ 
+     private void Button_OnClick(object? sender, RoutedEventArgs e)
+     {
+         Button button = sender as Button;
+-        Console.WriteLine("Clicked");
+ 
+         int row = Grid.GetRow(button);
+         int column = Grid.GetColumn(button);
+ 
+-        
++        if (bombCliked(row, column))
++        {
++            EndGame();
++        }
+ 
+-    if (DataContext is GameViewModel viewModel)
++        if (DataContext is GameViewModel viewModel)
+         {
+             viewModel.FloodReveal(row, column);
+ 
+             Cell cell = viewModel.Gameboard[row, column];
+-            if (cell.IsRevealed) 
++            if (cell.IsRevealed)
+             {
+                 button.IsVisible = false;
+             }
+         }
+     }
++
++    private bool bombCliked(int row, int column)
++    {
++        if (DataContext is GameViewModel viewModel)
++        {
++            Cell cell = viewModel.Gameboard[row, column];
++            return cell.ContainsBomb;
++        }
++
++        return false;
++    }
++
++
++    private void EndGame()
++    {
++        Rectangle endGame = new Rectangle
++        {
++            Width = GameGrid.Bounds.Width,
++            Height = GameGrid.Bounds.Height,
++            Fill = Brushes.DarkGray,
++            Opacity = 0.7,
++        };
++        
++        //GameOverCanvas.Children.Add(endGame);
++    }
+ }
+\ No newline at end of file
