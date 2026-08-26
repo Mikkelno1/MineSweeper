@@ -13,6 +13,7 @@ public class GameViewModel : ViewModelBase
     private const int Rows = 20;
     private const int Columns = 20;
     private Cell[,] _gameBoard = new Cell[Rows, Columns];
+    private int _adjecentBombs;
     public Cell[,] Gameboard => _gameBoard;
     private Grid _gameGrid;
     
@@ -56,7 +57,7 @@ public class GameViewModel : ViewModelBase
             _gameBoard[row, column].ContainsBomb = true;
             placed++;
 
-            Console.WriteLine(_gameBoard[row, column].ContainsBomb = true);
+            //Console.WriteLine(_gameBoard[row, column].ContainsBomb = true);
         }
     }
     
@@ -128,6 +129,8 @@ public class GameViewModel : ViewModelBase
             //Stops spreading if adjacent to a bomb
             if (cell.AdjacentBomb > 0)
             {
+                //Console.WriteLine(cell.AdjacentBomb);
+                //AdjacentBombs = cell.AdjacentBomb;
                 continue;
             }
 
@@ -150,4 +153,5 @@ public class GameViewModel : ViewModelBase
         }
     }
     
+    public int AdjacentBombs { get; private set; }
 }
